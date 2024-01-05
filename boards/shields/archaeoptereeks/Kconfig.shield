@@ -5,4 +5,4 @@
  #
 
 config SHIELD_ARCHAEOPTEREEKS
-    def_bool $(shields_list_contains, archaeoptereeks)
+    def_bool $(shields_list_contains,archaeoptereeks)
