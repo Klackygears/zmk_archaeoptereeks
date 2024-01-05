@@ -1,0 +1,8 @@
+file_format: "1"
+id: archaeoptereeks
+name: archaeoptereeks
+type: shield
+url: https://github.com/Klackygears/
+requires: [nice_nano]
+features:
+  - keys
