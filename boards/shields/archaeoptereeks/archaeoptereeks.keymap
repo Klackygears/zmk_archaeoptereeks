@@ -59,8 +59,15 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-        TDANCE(esctab, &kp ESC   , &kp TAB   )
-        TDANCE(ccopy,  &kp LC(c) , &kp LC(x) ) 
+        td_ccopy: ccopy {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LC(c)>, <&kp LC(x)>;
+        };
+
+        // TDANCE(esctab, &kp ESC   , &kp TAB   )
+        // TDANCE(ccopy,  &kp LC(c) , &kp LC(x) ) 
     };
  
      combos {
