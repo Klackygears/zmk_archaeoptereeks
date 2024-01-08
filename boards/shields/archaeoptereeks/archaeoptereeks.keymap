@@ -110,6 +110,7 @@
  
          default {
  // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ //                     Default, Dvorak
  //  Q    |  W  |  E  |  R  |  T  | |  Y  |  U  |  I  |    O    |  P   | 
  //  A    |  S  |  D  |  F  |  G  | |  H  |  J  |  K  |    L    |  ;   | 
  // Lsft/Z|  X  |  C  |  V  |  B  | |  N  |  M  |  ,  |    .    |Rsft//| 
@@ -118,7 +119,7 @@
             &kp SQT       &kp COMMA  &kp DOT     &kp P      &kp Y              &kp F     &kp G     &kp C       &kp R      &kp L
             &kp A         &kp O      &kp E       &kp U      &kp I              &kp D     &kp H     &kp T       &kp N      &kp S
             &mt LGUI SEMI &shm LALT Q &shm RCTRL J &kp K  &kp X              &kp B     &kp M     &shm RCTRL W &shm RALT V &mt RGUI Z
-                          &mo 2      &lt 1 BSPC  &lt LSHIFT SPACE   &lt 1 TAB &lt 2 RET &mo 2
+                          &mo 2      &lt 1 BSPC  &lt LSHIFT SPACE   &lt 1 TAB &lt 2 RET &rgb_ug RGB_TOG
              >;
          };
          numbers {
