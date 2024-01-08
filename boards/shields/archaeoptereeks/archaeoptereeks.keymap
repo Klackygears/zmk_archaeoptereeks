@@ -26,6 +26,15 @@
             key-positions = <KEYPOS>; \
             layers = <LAYERS>; \
         };
+        
+#define TDANCE(NAME, LABEL, B1, B2, TERM) \
+        d_##NAME: ##NAME { \
+            compatible = "zmk,behavior-tap-dance"; \
+            label = ##LABEL; \
+            #binding-cells = <0>; \
+            tapping-term-ms = <TERM>; \
+            bindings = <B1>, <B2>; \
+        }; 
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <200>; };
@@ -51,6 +60,10 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+        TDANCE(esctab, "esctab", &kp ESC   , &kp TAB   , 300)
+        TDANCE(altgui, "altgui", &kp LALT  , &kp LGUI  , 300)
+        TDANCE(symbol, "symbol", &mo SYMBOL, &to SYMBOL, 300)
+        TDANCE(ccopy,  "ccopy" , &kp LC(c) , &kp LC(x) , 200)
     };
  
      combos {
