@@ -60,9 +60,6 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-        TDANCE(esctab, "esctab", &kp ESC   , &kp TAB   , 300)
-        TDANCE(altgui, "altgui", &kp LALT  , &kp LGUI  , 300)
-        TDANCE(symbol, "symbol", &mo SYMBOL, &to SYMBOL, 300)
         TDANCE(ccopy,  "ccopy" , &kp LC(c) , &kp LC(x) , 200)
     };
  
