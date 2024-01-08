@@ -24,14 +24,14 @@
             timeout-ms = <TERM>; \
             bindings = <BINDINGS>; \
             key-positions = <KEYPOS>; \
-            layers = <LAYERS>; \
+            layers = <LAYERS>; \ 
         };
         
 #define TDANCE(NAME, B1, B2 ) \
         td_##NAME: ##NAME { \
             compatible = "zmk,behavior-tap-dance"; \
             #binding-cells = <0>; \
-            tapping-term-ms = 200; \
+            tapping-term-ms = <200>; \
             bindings = <B1>, <B2>; \
         }; 
 
