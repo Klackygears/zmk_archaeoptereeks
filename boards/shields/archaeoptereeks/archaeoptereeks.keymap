@@ -27,12 +27,12 @@
             layers = <LAYERS>; \
         };
         
-#define TDANCE(NAME, LABEL, B1, B2, TERM) \
-        d_##NAME: ##NAME { \
+#define TDANCE(NAME, LABEL, B1, B2 ) \
+        td_##NAME: ##NAME { \
             compatible = "zmk,behavior-tap-dance"; \
             label = ##LABEL; \
             #binding-cells = <0>; \
-            tapping-term-ms = <TERM>; \
+            tapping-term-ms = 200; \
             bindings = <B1>, <B2>; \
         }; 
 
@@ -60,7 +60,8 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-        TDANCE(ccopy,  "ccopy" , &kp LC(c) , &kp LC(x) , 200)
+        TDANCE(esctab, "esctab", &kp ESC   , &kp TAB   )
+        TDANCE(ccopy,  "ccopy" , &kp LC(c) , &kp LC(x) ) 
     };
  
      combos {
