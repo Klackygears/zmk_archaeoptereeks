@@ -29,7 +29,9 @@
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <200>; };
-
+&mt {
+    tapping-term-ms = <200>;
+};
 /*                KEY POSITIONS
 
   ╭────────────────────╮ ╭────────────────────╮
@@ -40,17 +42,6 @@
            ╰───────────╯ ╰───────────╯            */
  
  / {
- 
-     behaviors {
-        bhm: balanced_homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;    // <---[[moderate duration]]
-            quick-tap-ms = <0>;
-            flavor = "balanced";
-            bindings = <&kp>, <&kp>;
-        };
-    };
  
      combos {
         compatible = "zmk,combos";
@@ -99,8 +90,8 @@
             bindings = <
             &kp SQT       &kp COMMA  &kp DOT     &kp P      &kp Y              &kp F     &kp G     &kp C       &kp R      &kp L
             &kp A         &kp O      &kp E       &kp U      &kp I              &kp D     &kp H     &kp T       &kp N      &kp S
-            &bhm LGUI SEMI &bhm LALT Q &bhm RCTRL J &bhm K  &kp X              &kp B     &kp M     &bhm RCTRL W &bhm RALT V &bhm RGUI Z
-                          &mo 2      &mt 1 BSPC  &mt LSHIFT SPACE   &mt 1 TAB &lt 2 RET &mo 2
+            &mt LGUI SEMI &mt LALT Q &mt RCTRL J &kp K  &kp X              &kp B     &kp M     &mt RCTRL W &mt RALT V &mt RGUI Z
+                          &mo 2      &lt 1 BSPC  &lt LSHIFT SPACE   &lt 1 TAB &lt 2 RET &mo 2
              >;
          };
          numbers {
