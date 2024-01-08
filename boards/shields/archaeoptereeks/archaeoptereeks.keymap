@@ -27,13 +27,13 @@
             layers = <LAYERS>; \ 
         };
         
-#define TDANCE(NAME, B1, B2 ) \
+/* #define TDANCE(NAME, B1, B2 ) \
         td_##NAME: ##NAME { \
             compatible = "zmk,behavior-tap-dance"; \
             #binding-cells = <0>; \
             tapping-term-ms = <200>; \
             bindings = <B1>, <B2>; \
-        }; 
+        }; */
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <200>; };
@@ -63,7 +63,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LC(c)>, <&kp LC(x)>;
+            bindings = <&kp LC(C)>, <&kp LC(X)>;
         };
 
         // TDANCE(esctab, &kp ESC   , &kp TAB   )
