@@ -42,6 +42,16 @@
            ╰───────────╯ ╰───────────╯            */
  
  / {
+    behaviors {
+        shm: sub_homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
  
      combos {
         compatible = "zmk,combos";
@@ -90,7 +100,7 @@
             bindings = <
             &kp SQT       &kp COMMA  &kp DOT     &kp P      &kp Y              &kp F     &kp G     &kp C       &kp R      &kp L
             &kp A         &kp O      &kp E       &kp U      &kp I              &kp D     &kp H     &kp T       &kp N      &kp S
-            &mt LGUI SEMI &mt LALT Q &mt RCTRL J &kp K  &kp X              &kp B     &kp M     &mt RCTRL W &mt RALT V &mt RGUI Z
+            &mt LGUI SEMI &shm LALT Q &shm RCTRL J &kp K  &kp X              &kp B     &kp M     &shm RCTRL W &shm RALT V &mt RGUI Z
                           &mo 2      &lt 1 BSPC  &lt LSHIFT SPACE   &lt 1 TAB &lt 2 RET &mo 2
              >;
          };
