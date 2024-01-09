@@ -121,8 +121,8 @@
             bindings = <
             &kp SQT       &kp COMMA  &kp DOT     &kp P      &kp Y              &kp F     &kp G     &kp C       &kp R      &kp L
             &kp A         &kp O      &kp E       &kp U      &kp I              &kp D     &kp H     &kp T       &kp N      &kp S
-            &mt LGUI SEMI &shm LALT Q &shm RCTRL J &kp K  &kp X                &kp B     &kp M     &shm RCTRL W &shm RALT V &mt RGUI Z
-                          &mo 2      &lt 1 BSPC  &lt LSHIFT SPACE                        &lt 1 TAB &lt 2 RET &rgb_ug RGB_TOG
+            &mt LGUI SEMI &shm LALT Q &shm RCTRL J &kp K  &kp X                &kp B     &kp M     &shm RCTRL W &shm RALT V &lt 3 Z
+                          &mo 2      &lt 1 BSPC  &lt LSHIFT SPACE                        &lt 2 TAB &lt 1 RET &rgb_ug RGB_TOG
              >;
          };
          numbers {
