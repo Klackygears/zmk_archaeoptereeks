@@ -19,19 +19,19 @@
 #define ALL_LYR 0 1 2 //3  
 
 #define COMBO(NAME, BINDINGS, KEYPOS, TERM, LAYERS) \
-        combo_##NAME { \
-            timeout-ms = <TERM>; \
-            bindings = <BINDINGS>; \
-            key-positions = <KEYPOS>; \
-            layers = <LAYERS>; \ 
+        combo_##NAME {\
+            timeout-ms = <TERM>;\
+            bindings = <BINDINGS>;\
+            key-positions = <KEYPOS>;\
+            layers = <LAYERS>;\ 
         };
         
- #define TDANCE(NAME, B1, B2 ) \
-        td_##NAME: ##NAME { \
-            compatible = "zmk,behavior-tap-dance"; \
-            #binding-cells = <0>; \
-            tapping-term-ms = <200>; \
-            bindings = <B1>, <B2>; \
+ #define TDANCE(NAME, B1, B2 )\
+        td_##NAME: ##NAME {\
+            compatible = "zmk,behavior-tap-dance";\
+            #binding-cells = <0>;\
+            tapping-term-ms = <200>;\
+            bindings = <B1>, <B2>;\
         }; 
 
 &led_strip {
@@ -97,7 +97,7 @@
 
         // TDANCE(esctab, &kp ESC   , &kp TAB   )
          TDANCE(ccopy,  &kp LC(C) , &kp LC(X) ) 
-         TDANCE(pstspecial,  &kp pstform , &kp pstval ) 
+         TDANCE(pstspecial,  &pstform , &pstval ) 
     };
  
      combos {
