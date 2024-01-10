@@ -43,6 +43,32 @@
 &mt {
     tapping-term-ms = <200>;
 };
+
+/ {
+    macros {
+        pstval: pstval {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp E &kp S>
+                , <&macro_release &kp LCTRL>
+                , <&macro_tap &kp V>
+                ;
+        };
+        pstform: pstform {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp E &kp S>
+                , <&macro_release &kp LCTRL>
+                , <&macro_tap &kp T>
+                ;
+        };
+    };
+};
+
 /*                KEY POSITIONS
 
   ╭────────────────────╮ ╭────────────────────╮
@@ -71,6 +97,7 @@
 
         // TDANCE(esctab, &kp ESC   , &kp TAB   )
          TDANCE(ccopy,  &kp LC(C) , &kp LC(X) ) 
+         TDANCE(pstspecial,  &kp pstform , &kp pstval ) 
     };
  
      combos {
@@ -132,9 +159,9 @@
  // Lsft| BT_SEL0| BT_CLR | MUTE|     | | HOME| END | PGUP| PGDN| Rsft|
  //               | LCTL | LMOD| LALT | | Num |     | BL-r |
            bindings = <
-            &kp PG_UP  &kp PG_DN &kp HOME  &kp END   &kp LC(F)      &kp MINUS  &kp N7         &kp N8 &kp N9 &kp COLON
-            &kp LEFT   &kp UP    &kp DOWN  &kp RIGHT &none          &kp FSLH   &kp N4         &kp N5 &kp N6 &kp SEMI
-            &kp LC(F6) &kp LC(A) &kp LC(C) &kp LC(V) &kp DEL        &kp DOT    &kp N1         &kp N2 &kp N3 &kp N0
+            &kp PG_UP  &kp PG_DN &kp HOME  &kp END   &kp LC(F)          &kp MINUS  &kp N7         &kp N8 &kp N9 &kp COLON
+            &kp LEFT   &kp UP    &kp DOWN  &kp RIGHT &td pstspecial     &kp FSLH   &kp N4         &kp N5 &kp N6 &kp SEMI
+            &kp LC(F6) &kp LC(A) &td ccopy &kp LC(V) &kp DEL            &kp DOT    &kp N1         &kp N2 &kp N3 &kp N0
                        &trans    &trans    &trans                              &trans     &mt LSHIFT RET &kp N0
             >;
          };
