@@ -29,7 +29,7 @@
  #define TDANCE(NAME, LABEL, B1, B2 )\
         td_##NAME: ##NAME {\
             compatible = "zmk,behavior-tap-dance";\
-            label = <LABEL>;\
+            label = "<LABEL>";\
             #binding-cells = <0>;\
             tapping-term-ms = <200>;\
             bindings = <B1>, <B2>;\
@@ -97,8 +97,8 @@
         }; */
 
         // TDANCE(esctab, &kp ESC   , &kp TAB   )
-         TDANCE(cutcopy, "ccopy", &kp LC(C) , &kp LC(X) ) 
-         TDANCE(pastespecial, "pstspecial", &pstform , &pstval ) 
+         TDANCE(cutcopy, ccopy, &kp LC(C) , &kp LC(X) ) 
+         TDANCE(pastespecial, pstspecial, &pstform , &pstval ) 
     };
  
      combos {
