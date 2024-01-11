@@ -67,6 +67,26 @@
                 , <&macro_tap &kp T>
                 ;
         };
+        celdel: celdel {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp E>
+                , <&macro_tap &kp D>
+                , <&macro_release &kp LALT>
+                ;
+        };
+        xcelins: xcelins {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp I>
+                , <&macro_tap &kp E>
+                , <&macro_release &kp LALT>
+                ;
+        };
     };
 };
 
@@ -89,16 +109,12 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-/*         td_ccopy: ccopy {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp LC(C)>, <&kp LC(X)>;
-        }; */
 
-        // TDANCE(esctab, &kp ESC   , &kp TAB   )
          TDANCE(ccopy, "ccopy", &kp LC(C) , &kp LC(X) ) 
          TDANCE(pstspecial, "pstspecial", &pstform , &pstval ) 
+         TDANCE(deldel, "deldel", &kp DEL, &celdel ) 
+         TDANCE(pstinsrt, "pstinsrt", &kp LC(V) , &xcelins ) 
+         TDANCE(findreplace, "findreplace", &kp LC(F) , &kp LC(H) ) 
     };
  
      combos {
@@ -134,6 +150,7 @@
         COMBO(cplus,     &kp KP_PLUS, 5 16,     50, 1)
         COMBO(cmult,     &kp ASTRK,   15 16,    50, 1)
         COMBO(cequ,      &kp EQUAL,   17 26,    50, 0 1)
+        COMBO(cequ,      &kp GRAVE,   13 24,    50, 0 1)
     };
  
      keymap {
@@ -142,39 +159,27 @@
          default {
  // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
  //                     Default, Dvorak
- //  Q    |  W  |  E  |  R  |  T  | |  Y  |  U  |  I  |    O    |  P   | 
- //  A    |  S  |  D  |  F  |  G  | |  H  |  J  |  K  |    L    |  ;   | 
- // Lsft/Z|  X  |  C  |  V  |  B  | |  N  |  M  |  ,  |    .    |Rsft//| 
- //      | LCTL | Bspc/LMOD | SPC | | Del/Num | Ent | Sym |
             bindings = <
-            &kp SQT       &kp COMMA  &kp DOT     &kp P      &kp Y              &kp F     &kp G     &kp C       &kp R      &kp L
-            &kp A         &kp O      &kp E       &kp U      &kp I              &kp D     &kp H     &kp T       &kp N      &kp S
-            &mt LGUI SEMI &shm LALT Q &shm RCTRL J &kp K    &kp X              &kp B     &kp M     &shm RCTRL W &shm RALT V &lt 3 Z
-                          &mo 2      &lt 1 BSPC  &mt LSHIFT SPACE                        &lt 2 TAB &lt 1 RET &rgb_ug RGB_TOG
+            &kp SQT       &kp COMMA   &kp DOT      &kp P      &kp Y             &kp F     &kp G     &kp C       &kp R      &kp L
+            &kp A         &kp O       &kp E        &kp U      &kp I             &kp D     &kp H     &kp T       &kp N      &kp S
+            &mt LGUI SEMI &shm LALT Q &shm RCTRL J &kp K    &kp X               &kp B     &kp M     &shm RCTRL W &shm RALT V &lt 3 Z
+                          &mo 2       &lt 1 BSPC  &mt LSHIFT SPACE                        &lt 2 TAB &lt 1 RET &rgb_ug RGB_TOG
              >;
          };
          numbers {
  // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
- //  1  |    2   |  3     |  4  |  5  | |  6  |  7  |  8  |  9  |  0  |  
- // TAB | BT_PRV | BT_NXT | VOL-| VOL+| |  <  |  v  |  ∧  |  >  |  '  |
- // Lsft| BT_SEL0| BT_CLR | MUTE|     | | HOME| END | PGUP| PGDN| Rsft|
- //               | LCTL | LMOD| LALT | | Num |     | BL-r |
            bindings = <
-            &kp PG_UP  &kp PG_DN &kp HOME  &kp END   &kp LC(F)          &kp MINUS  &kp N7         &kp N8 &kp N9 &kp COLON
-            &kp LEFT   &kp UP    &kp DOWN  &kp RIGHT &td_pstspecial     &kp FSLH   &kp N4         &kp N5 &kp N6 &kp SEMI
-            &kp LC(F6) &kp LC(A) &td_ccopy &kp LC(V) &kp DEL            &kp DOT    &kp N1         &kp N2 &kp N3 &kp N0
-                       &trans    &trans    &trans                              &trans     &mt LSHIFT RET &kp N0
+            &kp PG_UP   &kp PG_DN &kp HOME  &kp END   &td_findreplace    &kp MINUS  &kp N7   &kp N8 &kp N9 &kp COLON
+            &kp LEFT    &kp UP    &kp DOWN  &kp RIGHT &td_pstspecial     &kp FSLH   &kp N4   &kp N5 &kp N6 &kp SEMI
+            &kp LC(TAB) &kp LC(A) &td_ccopy &td_pstinsrt &td_deldel      &kp DOT    &kp N1   &kp N2 &kp N3 &kp N0
+                        &trans    &trans    &trans                                  &trans   &mt LSHIFT RET &kp N0
             >;
          };
          function {
  // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
- // ESC |  F1 |  F2 |  F3 |  F4 | | OUT_USB | OUT_BLE |        |  =  |  -   | 
- // CAPS|  F5 |  F6 |  F7 |  F8 | |    [    |    ]    |        |  `  |  \   | 
- // LSFT|  F9 | F10 | F11 | F12 | |         |         |        |     | RSFT |
- //         | LCTL | LMOD| LALT | |  r  |         |   SYM  |
             bindings = <
             &bootloader &sys_reset &none      &none   &out OUT_TOG  &trans     &kp F9       &kp F10      &kp F11  &kp F12
-            &bt BT_CLR  &bt BT_NXT &bt BT_PRV &none   &none         &none      &kp F5       &kp F6       &kp F7   &kp F8
+            &none       &bt BT_NXT &bt BT_PRV &none   &bt BT_CLR    &none      &kp F5       &kp F6       &kp F7   &kp F8
             &none       &kp LALT   &none      &kp TAB &none         &none      &kp F1       &kp F2       &kp F3   &kp F4
                         &trans     &trans     &kp LSHIFT                       &trans       &trans       &trans
                >;
