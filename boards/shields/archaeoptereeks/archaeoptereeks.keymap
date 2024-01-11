@@ -29,7 +29,7 @@
  #define TDANCE(NAME, LABEL, B1, B2 )\
         td_##NAME: ##NAME {\
             compatible = "zmk,behavior-tap-dance";\
-            label = "<LABEL>";\
+            label = ##LABEL;\
             #binding-cells = <0>;\
             tapping-term-ms = <200>;\
             bindings = <B1>, <B2>;\
@@ -97,8 +97,8 @@
         }; */
 
         // TDANCE(esctab, &kp ESC   , &kp TAB   )
-         TDANCE(cutcopy, ccopy, &kp LC(C) , &kp LC(X) ) 
-         TDANCE(pastespecial, pstspecial, &pstform , &pstval ) 
+         TDANCE(ccopy, "ccopy", &kp LC(C) , &kp LC(X) ) 
+         TDANCE(pstspecial, "pstspecial", &pstform , &pstval ) 
     };
  
      combos {
@@ -161,8 +161,8 @@
  //               | LCTL | LMOD| LALT | | Num |     | BL-r |
            bindings = <
             &kp PG_UP  &kp PG_DN &kp HOME  &kp END   &kp LC(F)          &kp MINUS  &kp N7         &kp N8 &kp N9 &kp COLON
-            &kp LEFT   &kp UP    &kp DOWN  &kp RIGHT &tdpstspecial     &kp FSLH   &kp N4         &kp N5 &kp N6 &kp SEMI
-            &kp LC(F6) &kp LC(A) &tdccopy &kp LC(V) &kp DEL            &kp DOT    &kp N1         &kp N2 &kp N3 &kp N0
+            &kp LEFT   &kp UP    &kp DOWN  &kp RIGHT &td_pstspecial     &kp FSLH   &kp N4         &kp N5 &kp N6 &kp SEMI
+            &kp LC(F6) &kp LC(A) &td_ccopy &kp LC(V) &kp DEL            &kp DOT    &kp N1         &kp N2 &kp N3 &kp N0
                        &trans    &trans    &trans                              &trans     &mt LSHIFT RET &kp N0
             >;
          };
