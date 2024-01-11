@@ -150,7 +150,7 @@
         COMBO(cplus,     &kp KP_PLUS, 5 16,     50, 1)
         COMBO(cmult,     &kp ASTRK,   15 16,    50, 1)
         COMBO(cequ,      &kp EQUAL,   17 26,    50, 0 1)
-        COMBO(cequ,      &kp GRAVE,   13 24,    50, 0 1)
+        COMBO(uxgrav,      &kp GRAVE,   13 24,    50, 0 1)
     };
  
      keymap {
