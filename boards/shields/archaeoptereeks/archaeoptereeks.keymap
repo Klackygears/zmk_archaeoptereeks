@@ -119,11 +119,11 @@
  
      combos {
         compatible = "zmk,combos";
-        COMBO(cexclaim,  &kp EXCL,    2 3,      50, DEFAULT)
         COMBO(combo_esc, &kp ESC,     0 1,      50, DEFAULT)
-        COMBO(cquestion, &kp QMARK,   1 2,      50, DEFAULT)
         COMBO(c_dqt,     &kp DQT,     0 11,     50, DEFAULT)
+        COMBO(cquestion, &kp QMARK,   1 2,      50, DEFAULT)
         COMBO(c_at,      &kp AT,      1 10,     50, DEFAULT)
+        COMBO(cexclaim,  &kp EXCL,    2 3,      50, DEFAULT)
         COMBO(cpound,    &kp HASH,    2 11,     50, DEFAULT)
         COMBO(cdollar,   &kp DLLR,    3 12,     50, DEFAULT)
         COMBO(cpercent,  &kp PRCNT,   4 13,     50, DEFAULT)
@@ -131,10 +131,8 @@
 
         COMBO(clbrace,   &kp LBRC,    10 11,    50, DEFAULT)
         COMBO(crbrace,   &kp RBRC,    10 12,    50, DEFAULT)
-
-        COMBO(clbrak,    &kp LBKT,    11 12,    50, DEFAULT)
         COMBO(crbrak,    &kp RBKT,    10 13,    50, DEFAULT)
-        
+        COMBO(clbrak,    &kp LBKT,    11 12,    50, DEFAULT)
         COMBO(c_lpar,    &kp LPAR,    11 13,    50, DEFAULT)
         COMBO(c_rpar,    &kp RPAR,    12 13,    50, DEFAULT)
         
@@ -144,13 +142,18 @@
 
         COMBO(c_min,     &kp MINUS,   5 6,      50, DEFAULT)
         COMBO(c_pipe,    &kp PIPE,    6 7,      50, DEFAULT)
-        COMBO(c_under,   &kp UNDER,   7 8,      50, DEFAULT)
         COMBO(c_bslh,    &kp BSLH,    6 8,      50, DEFAULT)
+        COMBO(c_under,   &kp UNDER,   7 8,      50, DEFAULT)
+        COMBO(c_dqt,     &kp LS(SQT), 15 16,    50, DEFAULT)
+        COMBO(c_fslh,    &kp FSLH,    16 18,    50, DEFAULT)
+        COMBO(c_aster,   &kp ASTRK,   17 18,    50, DEFAULT)
         
         COMBO(cplus,     &kp KP_PLUS, 5 16,     50, 1)
+        COMBO(uxgrav,    &kp GRAVE,   13 24,    50, 0 1)
         COMBO(cmult,     &kp ASTRK,   15 16,    50, 1)
         COMBO(cequ,      &kp EQUAL,   17 26,    50, 0 1)
-        COMBO(uxgrav,      &kp GRAVE,   13 24,    50, 0 1)
+
+
     };
  
      keymap {
@@ -162,8 +165,8 @@
             bindings = <
             &kp SQT       &kp COMMA   &kp DOT      &kp P      &kp Y             &kp F     &kp G     &kp C       &kp R      &kp L
             &kp A         &kp O       &kp E        &kp U      &kp I             &kp D     &kp H     &kp T       &kp N      &kp S
-            &mt LGUI SEMI &shm LALT Q &shm RCTRL J &kp K    &kp X               &kp B     &kp M     &shm RCTRL W &shm RALT V &lt 3 Z
-                          &mo 2       &lt 1 BSPC  &mt LSHIFT SPACE                        &lt 2 TAB &lt 1 RET &rgb_ug RGB_TOG
+            &mt LGUI SEMI &shm LALT Q &shm RCTRL J &kp K      &kp X             &kp B     &kp M     &shm RCTRL W &shm RALT V &lt 3 Z
+                          &lt 2 RET   &lt 1 BSPC  &mt LSHIFT SPACE                        &lt 2 TAB &lt 1 RET   &rgb_ug RGB_TOG
              >;
          };
          numbers {
