@@ -144,7 +144,7 @@
         COMBO(c_pipe,    &kp PIPE,    6 7,      50, DEFAULT)
         COMBO(c_bslh,    &kp BSLH,    6 8,      50, DEFAULT)
         COMBO(c_under,   &kp UNDER,   7 8,      50, DEFAULT)
-        COMBO(c_dqt,     &kp LS(SQT), 15 16,    50, DEFAULT)
+        COMBO(c_dblqt,   &kp LS(SQT), 15 16,    50, DEFAULT)
         COMBO(c_fslh,    &kp FSLH,    16 18,    50, DEFAULT)
         COMBO(c_aster,   &kp ASTRK,   17 18,    50, DEFAULT)
         
