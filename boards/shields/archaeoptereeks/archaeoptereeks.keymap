@@ -14,9 +14,10 @@
 #define DEFAULT 0
 #define NUMB   1
 #define FUNC   2
-// #define MDIA   3
+#define MDIA   3
+#define BLTH   4
 
-#define ALL_LYR 0 1 2 //3  
+#define ALL_LYR 0 1 2 3 4
 
 #define COMBO(NAME, BINDINGS, KEYPOS, TERM, LAYERS) \
         combo_##NAME {\
@@ -43,6 +44,16 @@
 &lt { quick_tap_ms = <200>; };
 &mt {
     tapping-term-ms = <200>;
+};
+
+/ {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <4>;
+        };
+    };
 };
 
 / {
@@ -165,7 +176,7 @@
             &kp SQT       &kp COMMA   &kp DOT      &kp P      &kp Y             &kp F     &kp G     &kp C        &kp R       &kp L
             &kp A         &kp O       &kp E        &kp U      &kp I             &kp D     &kp H     &kp T        &kp N       &kp S
             &mt LGUI SEMI &shm LALT Q &shm RCTRL J &kp K      &kp X             &kp B     &kp M     &shm RCTRL W &shm RALT V &lt 3 Z
-                          &lt 2 RET   &lt 1 BSPC  &mt LSHIFT SPACE                        &lt 2 TAB &lt 1 RET    &rgb_ug RGB_TOG
+                          &lt 2 RET   &lt 1 BSPC  &mt LSHIFT SPACE                        &lt 2 TAB &lt 1 RET    &lt 3 RET
              >;
          };
          numbers {
@@ -174,16 +185,16 @@
             &kp PG_UP   &kp PG_DN &kp HOME  &kp END   &td_findreplace    &kp MINUS  &kp N7   &kp N8         &kp N9       &kp COLON
             &kp LEFT    &kp UP    &kp DOWN  &kp RIGHT &td_pstspecial     &kp FSLH   &kp N4   &kp N5         &kp N6       &kp SEMI
             &kp LC(TAB) &kp LC(A) &td_ccopy &td_pstinsrt &td_deldel      &kp DOT    &kp N1   &shm RCTRL N2  &shm RALT N3 &shm RGUI N0
-                        &trans    &trans    &trans                                  &trans   &mt LSHIFT RET &kp N0
+                        &trans    &trans    &trans                                  &trans   &mt LSHIFT RET &trans
             >;
          };
          function {
  // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
             bindings = <
-            &bootloader  &sys_reset &none       &bt BT_CLR   &bt BT_CLR_ALL   &none      &kp F9       &kp F10      &kp F11  &kp F12
-            &bt BT_SEL 1 &bt BT_NXT &bt BT_PRV  &out OUT_TOG &none            &none      &kp F5       &kp F6       &kp F7   &kp F8
+            &none        &none      &none       &none        &none            &none      &kp F9       &kp F10      &kp F11  &kp F12
+            &none        &none      &none       &none        &none            &none      &kp F5       &kp F6       &kp F7   &kp F8
             &none        &kp LALT   &none       &kp TAB      &none            &none      &kp F1       &kp F2       &kp F3   &kp F4
-                         &trans     &trans      &kp LSHIFT                        &trans       &trans       &trans
+                         &trans     &trans      &kp LSHIFT                               &trans       &trans       &trans
                >;
          }; 
          
@@ -196,5 +207,15 @@
                    &trans  &trans &trans                              &trans          &trans          &trans
                >;
          };
+         bluetooth {
+ // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            bindings = <
+            &none        &none      &none       &none        &none            &bootloader &sys_reset &none      &bt BT_CLR   &bt BT_CLR_ALL
+            &bt BT_SEL 1 &bt BT_NXT &bt BT_PRV  &out OUT_TOG &none            &none       &none      &none      &none        &none
+            &none        &none      &none       &none        &none            &none       &none      &none      &none        &none
+                         &trans     &trans      &trans                                    &trans     &trans     &trans
+               >;
+         }; 
+         
      };
  };
