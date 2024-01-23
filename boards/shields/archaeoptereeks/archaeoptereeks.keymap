@@ -146,7 +146,7 @@
         COMBO(c_rpar,    &kp RPAR,    12 13,    50, DEFAULT)
         
         COMBO(ccaret,    &kp CARET,   10 23,    50, DEFAULT)
-        COMBO(c_tild,    &kp LS(GRAVE), 11 23,  50, DEFAULT)
+        COMBO(c_tild,    &kp TILDE,   11 23,    50, DEFAULT)
         COMBO(c_grv,     &kp GRAVE,   12 23,    50, DEFAULT)
 
         COMBO(c_min,     &kp MINUS,   5 6,      50, DEFAULT)
@@ -158,7 +158,7 @@
         COMBO(c_aster,   &kp ASTRK,   17 18,    50, DEFAULT)
         
         COMBO(cplus,     &kp KP_PLUS, 5 16,     50, 1)
-        COMBO(uxgrav,    &kp GRAVE,   13 24,    50, 0 1)
+        //COMBO(uxgrav,    &kp GRAVE,   13 24,    50, 0 1)
         COMBO(cmult,     &kp ASTRK,   15 16,    50, 1)
         COMBO(cequ,      &kp EQUAL,   17 26,    50, 0 1)
 
@@ -209,10 +209,10 @@
          bluetooth {
  // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
             bindings = <
-            &none        &none      &none       &none        &none            &bootloader &sys_reset &none      &bt BT_CLR   &bt BT_CLR_ALL
-            &bt BT_SEL 1 &bt BT_NXT &bt BT_PRV  &out OUT_TOG &none            &none       &none      &none      &none        &none
-            &none        &none      &none       &none        &none            &none       &none      &none      &none        &none
-                         &trans     &trans      &trans                                    &trans     &trans     &trans
+            &none        &none        &none        &none        &none            &bootloader &sys_reset &none      &bt BT_CLR   &bt BT_CLR_ALL
+            &bt BT_SEL 1 &bt BT_NXT   &bt BT_PRV   &out OUT_TOG &none            &none       &none      &none      &none        &none
+            &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 5     &none       &none      &none      &none        &none
+                         &trans       &trans       &trans                                    &trans     &trans     &trans
                >;
          }; 
          
